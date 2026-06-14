@@ -11,23 +11,23 @@ print("Division : ", arr / 8)
 print("Modulo ", arr % 2)
 print("Power : ", arr ** 3)
 
-# Vertorized math functions
+# Vectorized math functions
 
 array = np.array([10.02, 9.318, 27.83])
 
-print("Square root of Array : ", np.sqrt(array))
+print("Square root of the array : ", np.sqrt(array))
 print("Pi value : ", np.pi)
-print("Round off the Array : ", np.round(array))  # convert to int
-print("Ceil of the Array : ", np.ceil(array))  # increase value
-print("Floor of the Array : ", np.floor(array))  # decrease value
+print("Rounded array : ", np.round(array))  # convert to int
+print("Ceiling of the array : ", np.ceil(array))  # increase value
+print("Floor of the array : ", np.floor(array))  # decrease value
 
-# Practice  => Print area of a circle from the given radii
+# Practice => Print the area of a circle from the given radii
 
 radii = np.array([4, 5, 6])
 
-print("Area of Circle :", np.pi* radii ** 2)
+print("Area of the circle :", np.pi * radii ** 2)
 
-# Element-wise Arithemtic
+# Element-wise arithmetic
 
 arr1 = np.array([10,20,30])
 arr2 = np.array([5,10,15])
@@ -39,14 +39,15 @@ print(arr1 / arr2)
 print(arr1 % arr2)
 print(arr1 % arr2)
 
-# Comparsion Operators
+# Comparison operators
 
 marks = np.array([98,20,100,92,95,97])
 
-print("Perfect Score Students : ",marks[marks == 100])
-print("Pass Score Students : ",marks[marks >= 40])
-print("Fail Score Students : ",marks[marks < 40])
+# Prints boolean values for the marks
+print("Perfect-score students : ", marks == 100)
+print("Pass-score students : ", marks >= 40)
+print("Fail-score students : ", marks <= 40)
 
-marks[marks < 40] = 0
+marks[marks <= 40] = 0
 
-print("Credits of Students : ",marks)
+print("Credits of students : ", marks)

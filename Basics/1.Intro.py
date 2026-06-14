@@ -1,21 +1,21 @@
 # NumPy (Numerical Python) is the foundational Python library for scientific computing.
-# NumPy is simply python intregated with C programming
-# Advantages of Numpy => faster execution, memory efficent
+# NumPy is essentially Python integrated with C programming.
+# Advantages of NumPy => faster execution, memory efficient
 
-# The line for importing numpy
+# Line for importing NumPy
 import numpy as np
 
-print(np.__version__)  # line to check the numpy version
+print(np.__version__)  # Line to check the NumPy version
 
-# usage of numpy
+# Usage of NumPy
 
-print("intro to arrays in numpy")
-print("Normal Array")
-numbers = [1, 2, 3, 4]  # normal list double the number of items in the list
+print("Introduction to arrays in NumPy")
+print("Normal List")
+numbers = [1, 2, 3, 4]  # A normal list duplicates its items when multiplied.
 numbers *= 2
 print(numbers)
 
-print("Numpy Array")
+print("NumPy Array")
 np_array = np.array([1, 2, 3, 4])
 np_array *= 2
 print(np_array)
