@@ -24,6 +24,7 @@ import numpy as np
 # res = aA + bB
 
 print("Question-1 Answer\n")
+
 vectorA = np.array([2, 1])  # vectorA => A
 vectorB = np.array([-1, 2])  # vectorB => B
 
@@ -32,7 +33,7 @@ b = int(input("Enter the value of b : "))  # Enter 3
 
 # E.g. if a = 2, b = 3 then res = [4-3, 2+6] = [1,8]
 resVector = (a * vectorA) + (b * vectorB)
-# resVector = np.column_stack(vectorA,vectorB) @ np.array([a,b]) # Mathematically => A * x
+# resVector = np.column_stack((vectorA,vectorB)) @ np.array([a,b]) # Mathematically => A * x
 
 print("Resultant Vector = ", resVector)
 
@@ -59,6 +60,7 @@ print("Resultant Vector = ", resVector)
 # Ans)
 
 print("\nQuestion-2 Answer\n")
+
 vecA = np.array([1,2])
 vecB = np.array([3,1])
 
@@ -105,8 +107,25 @@ else:
 
 # Ans)
 
+print("\nQuestion-3 Answer\n")
 
+directionA = np.array([1,0])
+directionB = np.array([0,1])
 
+target = np.array([4,7])
+
+matA = np.column_stack((directionA, directionB))
+
+y = np.linalg.solve(matA, target)
+
+m = int(y[0])
+n = int(y[1])
+
+print("value of m : ",m)
+print("value of n : ",n)
+
+print("\nResult : ",np.array([m,n]))
+print("Target Reached : ",np.array_equal(target,matA @ y))
 
 # Problem 04 — A Limited Direction System
 # ----------------------------------------
@@ -128,28 +147,129 @@ else:
 # Expected learning:
 # Understand how the span of a single vector behaves.
 
+# Ans)
+
+print("\nQuestion-4 Answer\n")
+
+direc = np.array([2,4])
+tar = np.array([6,12])
+
+res = tar / direc
+
+if(np.all(res == res[0])):
+    print("Target is reachable.")
+    print("Scaling Factor :",int(res[0]))
+else:
+    print("Target is not reachable.")
 
 # Problem 05 — Do These Directions Cover 2D Space?
 # -------------------------------------------------
-# You are designing a simple 2D movement system using:
+# You are designing a simple 2D movement system for a game.
 
-# vectorA = [1, 2]
-# vectorB = [2, 4]
+# The system has two available movement directions:
 
-# The system should be capable of generating any possible
-# 2D direction.
+# directionA = [1, 2]
+# directionB = [2, 4]
 
-# Can these two vectors achieve that?
+# The game should allow the player to generate ANY possible
+# direction in a 2D coordinate system by combining these two
+# directions with different scaling factors.
 
-# Don't rely only on calculation. Analyze the relationship
-# between the vectors and explain your reasoning.
+# Your Task
+# ---------
+# Determine whether directionA and directionB are sufficient
+# to generate every possible 2D vector.
 
-# Use NumPy to experiment with different coefficients and
-# observe the vectors you can generate.
+# For example, investigate whether vectors such as:
 
-# Expected learning:
-# Build intuition for span and why some vectors provide
-# more freedom than others.
+#     [3, 6]
+#     [5, 10]
+#     [10, 20]
+
+# can be generated.
+
+# Then consider a vector such as:
+
+#     [1, 0]
+
+# Can the movement system generate it?
+
+# Your solution should:
+
+# 1. Analyze the mathematical relationship between directionA
+#    and directionB.
+
+# 2. Determine what kind of vectors their combinations can
+#    generate.
+
+# 3. Explain whether their span covers the entire 2D space.
+
+# 4. Use NumPy to experiment with different coefficients.
+
+# 5. Verify your conclusion with at least a few examples.
+
+# Important
+# ---------
+# Don't immediately use np.linalg.solve().
+
+# This problem is primarily testing your understanding of
+# LINEAR COMBINATION and SPAN.
+
+# Think about the relationship between:
+
+#     directionA = [1, 2]
+#     directionB = [2, 4]
+
+# before writing the code.
+
+
+# Interview Question
+# ------------------
+# An interviewer asks:
+
+# "Can two vectors in R² always span the entire 2D space?"
+
+# Give a clear answer and explain what determines whether
+# they can or cannot.
+
+
+# Expected Learning
+# -----------------
+# Understand that simply having two vectors does NOT guarantee
+# that they span 2D space.
+
+# The relationship between the vectors matters.
+
+# You should be able to recognize when vectors provide
+# independent directions and when they are effectively pointing
+# along the same direction.
+
+# Ans)
+
+print("\nQuestion-5 Answer\n")
+
+vec1 = np.array([1,2])
+vec2 = np.array([2,4])
+
+# Step-1 : Find the relation b/w vectors and also the scaling factor
+res = vec2 / vec1
+if(np.all(res == res[0])):
+    factor = int(res[0])
+else:
+    print("There is no scaling factor.")
+
+# i.e. vec2 = 2 * vec1
+print("Value of Scaling factor :",factor)
+
+# Step-2 : Modify the linear combination for span
+
+# a * vec1 + b * vec2
+# WKT, vec2 = 2 * vec1
+# => a * vec1 + b * 2 * vec1
+
+linearComb = a * vec1 + b * (factor * vec1)
+
+# Step-3 : Solve the span 
 
 
 # Problem 06 — Representing Data Using Features
