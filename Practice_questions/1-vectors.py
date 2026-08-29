@@ -490,16 +490,118 @@ print("\nQuestion-8 Answer\n")
 vect_A = np.array([1,3])
 vect_B = np.array([-2,1])
 
-var1, var2 = map(int, input("Enter the values of a and b : ").split())
+t1, t2 = 2,3
 
-comb1 = var1 * vect_A
-comb2 = var2 * vect_B
+comb1 = t1 * vect_A
+comb2 = t2 * vect_B
 
 linear_combi = comb1 + comb2
-
+print("\nPart-1 :\n")
 print("Combination1 : ",comb1)
 print("Combination2 : ",comb2)
 print("Linear Combination : ",linear_combi)
 
 # Part-2 : What is a Span
 
+print("\nPart-2 :\n")
+vec_A = np.array([2,1])
+vec_B = np.array([3,7])
+
+# Step-1 : Show a Linear Combination
+
+a1 , a2 = 9, 2
+
+linear_com = (a1 * vec_A) + (a2 * vec_B)
+
+# Single combiination of two values
+print("\nLinear Combination of vec_A and vec_B : ",linear_com)
+
+# Step-2 : Show the Span to differ b/w them
+
+var1, var2 = map(int,input("Enter the values of var1 and var2 : ").split())
+
+first_coeff = var1 * vec_A
+sec_coeff = var2 * vec_B
+linear_com1 = first_coeff  + sec_coeff
+
+print("First Coefficient : ",first_coeff)
+print("Second Coefficient : ",sec_coeff)
+print("Linear Combination : ",linear_com1)
+
+if(np.array_equal(linear_com1, (var1 * vec_A + var2 * vec_B))):
+    print(f'{linear_com1} beglons to the Span of vec_A and vec_B.')
+else:
+    print(f'{linear_com1} does not belong to the Span of vec_A and vec_B.')
+
+# Part-3 : Compare two Vector Systems 
+
+print("\nPart-3 : \n")
+
+# System-A
+print("\nSystem-B\n")
+vec_a1 = np.array([1,2])
+vec_b1 = np.array([2,4])
+
+sc_factor = vec_b1 / vec_a1
+
+u1,v1 = map(int,input("Enter the values of u1 and v1 : ").split())
+
+linear_com_test1 = u1 * vec_a1 + v1 * vec_b1
+if(np.all(sc_factor == sc_factor[0])):
+    linear_com_test2 = (u1 + int(sc_factor[0]) * v1) * vec_a1
+
+if(np.array_equal(linear_com_test1,linear_com_test2)):
+    print("System-A is Linearly dependent.")
+    print("Linear Combination of System-1 : ",linear_com_test2)
+else:
+    print("System-A is Linearly independent.")
+
+# System-B
+print("\nSystem-B\n")
+vec_a2 = np.array([2,1])
+vec_b2 = np.array([-1,2])
+
+sc_fact = vec_b2 / vec_a2
+
+u2, v2 = map(int,input("Enter the values of u2 and v2 : ").split())
+
+linear_com_Test1 = u2 * vec_a2 + v2 * vec_b2
+if(np.all(sc_fact == sc_fact[0])):
+    print("System-B is Linearly dependent.")
+else:
+    print("System-B is Linearly independent.")
+
+print("Linear Combination of System-2 : ",linear_com_Test1)
+
+# Part-4 : Coding Demonstration (Linear Combination verification)
+
+print("\nPart-4 : \n")
+
+p1, p2 = map(int, input("Enter the values of p1 and p2 : ").split())
+
+com1 = p1 * vec_a2
+com2 = p2 * vec_b2
+lin_com = com1 + com2
+
+print("Combination1 vector : ",com1)
+print("Combination2 vector : ",com2)
+print("Linear Combination of vec_a2 and vec_b2 : ",lin_com)
+
+if(np.array_equal(lin_com,(com1 + com2))):
+    print("This is a Linear Combination")
+else:
+    print("This is not a Linear Combination")
+
+# Part-5 : Interview Question
+
+# Theory explanation : 
+'''
+    No. Having two vectors in R^2 does not automatically mean they span R^2.
+    If one vector is a scalar multiple of the other, the vectors are linearly 
+    dependent and provide only one unique direction, so their span is a line.
+    If the two vectors are linearly independent, they provide two independent 
+    directions, and because we are in R^2, those two vectors span the entire
+    space.
+'''
+
+# Code is part-3
