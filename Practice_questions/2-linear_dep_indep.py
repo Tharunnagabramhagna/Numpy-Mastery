@@ -287,6 +287,29 @@ else:
 # Ans)
 print("\nQuestion-5 Answer\n")
 
+def check_indep(vectors):
+    # Convert the vectors to matrix form
+    A = np.column_stack(vectors)
+
+    n = len(vectors) # Calculate the length of vectors
+
+    rank = np.linalg.matrix_rank(A) # Calculate the rank of matrix
+
+    if(rank == n): # Condition for linear independence
+        print("Vectors are linearly independent")
+        print("Vectors have a trivial solution")
+    else:
+        print("Vectors are linearly dependent")
+        print("Vectors have a non-trivial solution")
+
+vector1 = np.array([1,0])
+vector2 = np.array([0,1])
+vector3 = np.array([1,1])
+
+print("System-1\n")
+check_indep([vector1,vector2]) # 2 vectors system
+print("\nSystem-2\n")
+check_indep([vector1,vector2,vector3]) # 3 vectors system
 
 # Problem 06 — Final Interview Challenge
 # ---------------------------------------
@@ -336,5 +359,29 @@ print("\nQuestion-5 Answer\n")
 #     Matrix representation
 #          ↓
 #     NumPy implementation
-#
-#
+
+# Ans)
+print("\nQuestion-6 Answer\n")
+
+def check_lin(vectors):
+    A = np.column_stack(vectors)
+
+    size = len(vectors)
+
+    rank = np.linalg.matrix_rank(A)
+
+    if(rank == size):
+        print("Vectors are linearly independent")
+        print("Vectors have a trivial solution")
+    else:
+        print("Vectors are linearly dependent")
+        print("Vectors have a non-trivial solution")
+
+
+vec_a = np.array([1,2])
+vec_b = np.array([2,4])
+vec_c = np.array([3,1])
+
+# Rank of A = 2 ; size of vector = 3
+# Rank of A < size of vector
+check_lin([vec_a,vec_b,vec_c])
