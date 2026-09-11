@@ -311,54 +311,70 @@ check_indep([vector1,vector2]) # 2 vectors system
 print("\nSystem-2\n")
 check_indep([vector1,vector2,vector3]) # 3 vectors system
 
-# Problem 06 — Final Interview Challenge
-# ---------------------------------------
-# Imagine you are in an ML engineering interview.
-#
-# The interviewer gives you the following vectors:
-#
-# vectorA = [1, 2]
-# vectorB = [2, 4]
-# vectorC = [3, 1]
-#
-# They ask:
-#
-# "Are these vectors linearly independent?"
-#
-# Your Task:
-# 1. Write the general zero-vector equation:
-#
-#        c1 * vectorA + c2 * vectorB + c3 * vectorC = [0, 0]
-#
-# 2. Determine whether a non-trivial solution exists.
-# 3. Find one if it exists.
-# 4. Classify the vectors.
-# 5. Identify the redundant vector, if there is one.
-# 6. Explain the result geometrically.
-# 7. Implement your reasoning using NumPy.
-#
-# Final Interview Question:
-#
+# ============================================================
+# PROBLEM 6 — FINAL INTERVIEW CHALLENGE
+# ============================================================
+# Given:
+
+# vectorA = np.array([1, 2])
+# vectorB = np.array([2, 4])
+# vectorC = np.array([3, 1])
+
+# Tasks:
+
+# 1. Construct the matrix using np.column_stack().
+
+# 2. Calculate:
+#    - Number of vectors
+#    - Matrix shape
+#    - Matrix rank
+
+# 3. Determine whether the vectors are linearly independent
+#    or linearly dependent.
+
+# 4. Determine whether a non-trivial solution exists.
+
+# 5. Explain why using the relationship:
+
+#        rank(A) < number of vectors
+
+# 6. Identify the redundant vector.
+
+# 7. Explain geometrically why the vectors are dependent.
+
+# 8. Implement the final answer using your reusable
+#    independence checker from Problem 5.
+
+# ------------------------------------------------------------
+# FINAL INTERVIEW QUESTION
+# ------------------------------------------------------------
+
 # "What is the difference between checking whether two vectors
 # are scalar multiples and using the general definition of
 # linear independence?"
-#
-# Answer this in your own words.
-#
-# Expected Learning:
-# Be able to move from:
-#
-#     Definition
-#          ↓
-#     Mathematical equation
-#          ↓
-#     Non-trivial solution
-#          ↓
-#     Linear dependence / independence
-#          ↓
-#     Matrix representation
-#          ↓
-#     NumPy implementation
+
+# Answer in your own words.
+
+# ============================================================
+# EXPECTED LEARNING
+# ============================================================
+
+# Definition
+#     ↓
+# Zero-vector equation
+#     ↓
+# Trivial / non-trivial solution
+#     ↓
+# Linear dependence / independence
+#     ↓
+# Matrix representation
+#     ↓
+# Rank
+#     ↓
+# NumPy implementation
+#     ↓
+# Reusable independence checker
+# ============================================================
 
 # Ans)
 print("\nQuestion-6 Answer\n")
